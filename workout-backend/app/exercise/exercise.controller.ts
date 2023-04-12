@@ -12,6 +12,7 @@ export const createExercise = asyncHandler(
 		try {
 			if (!name || !times || !iconPath) {
 				res.status(StatusCodes.BAD_REQUEST).json({ message: 'Bad request' })
+				return
 			}
 			const createdExercise = await prisma.exercise.create({
 				data: { iconPath, name, times, Workout: workoutId }
@@ -63,8 +64,15 @@ export const updateExercise = asyncHandler(
 	async (req: IRequest, res: Response) => {
 		try {
 			const { id, name, times, iconPath } = req.body
+			const existingExercise = await prisma.exercise.findUnique({
+				where: { id }
+			})
+			if (!existingExercise) {
+				res.status(StatusCodes.NOT_FOUND).json({ message: 'Not found' })
+				return
+			}
 			const newExercise = await prisma.exercise.update({
-				where: { id },
+				where: { id: existingExercise.id },
 				data: { name, times, iconPath }
 			})
 			res.status(StatusCodes.OK).json(newExercise)
