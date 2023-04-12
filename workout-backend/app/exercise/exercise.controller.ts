@@ -44,12 +44,12 @@ export const getAllExercises = asyncHandler(
 export const deleteExercise = asyncHandler(
 	async (req: IRequest, res: Response) => {
 		try {
-			const { id } = req.body
+			const { id } = req.params
 			if (!id) {
 				res.status(StatusCodes.BAD_REQUEST).json({ message: 'Bad request' })
 				return
 			}
-			await prisma.exercise.delete({ where: { id: +id } })
+			await prisma.exercise.delete({ where: { id: Number(id) } })
 			res.status(StatusCodes.NO_CONTENT).json()
 		} catch (e) {
 			console.log(e)
@@ -63,9 +63,10 @@ export const deleteExercise = asyncHandler(
 export const updateExercise = asyncHandler(
 	async (req: IRequest, res: Response) => {
 		try {
-			const { id, name, times, iconPath } = req.body
+			const { id } = req.params
+			const { name, times, iconPath } = req.body
 			const existingExercise = await prisma.exercise.findUnique({
-				where: { id }
+				where: { id: Number(id) }
 			})
 			if (!existingExercise) {
 				res.status(StatusCodes.NOT_FOUND).json({ message: 'Not found' })
