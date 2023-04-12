@@ -20,3 +20,21 @@ model User {
   password String 
   image String[]
 }
+
+model Exercise {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  name String
+  iconPath String @map("icon_path")
+  times Int
+  Workout Workout[]
+}
+
+model Workout {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  name String
+  exercises Exercise[]
+}

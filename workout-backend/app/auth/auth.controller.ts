@@ -1,7 +1,6 @@
 import { faker } from '@faker-js/faker'
 import bcrypt from 'bcrypt'
 import { Request, Response } from 'express'
-import jwt from 'jsonwebtoken'
 
 import { generateToken } from '../middleware/generate-token'
 import { UserReturnFields } from '../middleware/user.utils'
@@ -25,7 +24,7 @@ export const authUser = async (req: Request, res: Response) => {
 			res.status(403).json({ message: 'Wrong credentials' })
 			return
 		}
-		const newToken = generateToken(user.id)
+		const newToken = await generateToken(user.id)
 		res.status(200).json({ user, token: newToken })
 	} catch (e) {
 		console.log(e)
