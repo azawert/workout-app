@@ -30,7 +30,11 @@ export const createExercise = asyncHandler(
 export const getAllExercises = asyncHandler(
 	async (req: IRequest, res: Response) => {
 		try {
-			const exercises = await prisma.exercise.findMany()
+			const exercises = await prisma.exercise.findMany({
+				orderBy: {
+					createdAt: 'desc'
+				}
+			})
 			res.status(200).json(exercises)
 		} catch (e) {
 			console.log(e)
