@@ -29,6 +29,7 @@ model Exercise {
   iconPath String @map("icon_path")
   times Int
   Workout Workout[]
+  lengthTime Int @map("lenght_time") @default(15)
 }
 
 model Workout {
