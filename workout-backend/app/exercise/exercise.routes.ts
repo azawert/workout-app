@@ -8,12 +8,22 @@ import {
 	getAllExercises,
 	updateExercise
 } from './exercise.controller'
+import {
+	createNewExerciseLog,
+	getLogById,
+	toggleCompletedLog,
+	updateExerciseLog
+} from './log/exercise-log.controller'
 
 const router = express.Router()
 
 router.post('/create', isAuth, createExercise)
+router.post('/log/:exerciseId', isAuth, createNewExerciseLog)
 router.get('/all', isAuth, getAllExercises)
-router.delete('/:id', isAuth, deleteExercise)
-router.put('/:id', isAuth, updateExercise)
+router.get('/log/:logId', isAuth, getLogById)
+router.delete('/:exerciseId', isAuth, deleteExercise)
+router.put('/:exerciseId', isAuth, updateExercise)
+router.put('/log/time/:logId', isAuth, updateExerciseLog)
+router.patch('/log/complete/:logId', isAuth, toggleCompletedLog)
 
 export default router

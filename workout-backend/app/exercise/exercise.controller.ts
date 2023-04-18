@@ -8,14 +8,14 @@ import { IRequest } from '../types/request.type'
 
 export const createExercise = asyncHandler(
 	async (req: IRequest, res: Response) => {
-		const { name, times, iconPath, workoutId } = req.body
+		const { name, times, iconPath } = req.body
 		try {
 			if (!name || !times || !iconPath) {
 				res.status(StatusCodes.BAD_REQUEST).json({ message: 'Bad request' })
 				return
 			}
 			const createdExercise = await prisma.exercise.create({
-				data: { iconPath, name, times, Workout: workoutId }
+				data: { iconPath, name, times }
 			})
 			res.status(StatusCodes.CREATED).json(createdExercise)
 		} catch (e: any) {
