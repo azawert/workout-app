@@ -6,6 +6,8 @@ import { StatusCodes } from 'http-status-codes'
 import { prisma } from '../prisma'
 import { IRequest } from '../types/request.type'
 
+import { calculateMinutes } from './utils/calc-average-min'
+
 export const createWorkout = asyncHandler(
 	async (req: IRequest, res: Response) => {
 		try {
@@ -119,7 +121,7 @@ export const getSingleWorkout = asyncHandler(
 				res.status(StatusCodes.NOT_FOUND).json({ message: 'Not found' })
 				return
 			}
-			const lengthOfWorkout = workout?.exercises.length * 3.7
+			const lengthOfWorkout = calculateMinutes(workout.exercises.length)
 			res.status(StatusCodes.OK).json({ workout, lengthOfWorkout })
 		} catch (e) {
 			console.log(e)

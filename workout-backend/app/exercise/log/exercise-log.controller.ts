@@ -75,7 +75,6 @@ export const toggleCompletedLog = asyncHandler(
 
 export const getLogById = asyncHandler(async (req: IRequest, res: Response) => {
 	const { logId } = req.params
-	console.log(req.params)
 	const exerciseLog = await prisma.exerciseLog.findUnique({
 		where: {
 			id: Number(logId)
