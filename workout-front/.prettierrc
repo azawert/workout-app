@@ -1,0 +1,14 @@
+{
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "/features",
+    "/routes/",
+    "/helpers/",
+    "/components",
+    "/hooks",
+    "^../(.*)",
+    "^./(.*)"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

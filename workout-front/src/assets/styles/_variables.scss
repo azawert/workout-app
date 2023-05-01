@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap");
+
+$accent: #b53471;
+$white: #f1e8e8;
+$black: #1a0612;
+$dark-purple: darkest($accent, 30%);
+$purple: darkest($accent, 10%);
+
+$bx-accent: 0 4px 4px rgba($accent, 0.25);
+$bx-16: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+$default-font: "Sofia Sans", sans-serif;
+
+$mobile_width: 480px;
