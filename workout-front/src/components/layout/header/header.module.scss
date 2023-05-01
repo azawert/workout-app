@@ -1,0 +1,16 @@
+.wrapper_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  svg {
+    cursor: pointer;
+    path {
+      color: white;
+    }
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+}
