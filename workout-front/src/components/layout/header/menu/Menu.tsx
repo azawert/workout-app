@@ -14,7 +14,7 @@ export const Menu: FC<IMenuProps> = ({ isShow, setIsShow }) => {
   const handleLogoutClick = () => {
     return null;
   };
-  const handleCloseAfterClickOnLi = () => {
+  const handleCloseAfterClickOnMenuItem = () => {
     setIsShow(false);
   };
   return (
@@ -27,13 +27,16 @@ export const Menu: FC<IMenuProps> = ({ isShow, setIsShow }) => {
         <ul>
           {menuData.map((menuItem) => (
             <li key={menuItem.title}>
-              <Link to={menuItem.link} onClick={handleCloseAfterClickOnLi}>
+              <Link
+                to={menuItem.link}
+                onClick={handleCloseAfterClickOnMenuItem}
+              >
                 {menuItem.title}
               </Link>
             </li>
           ))}
-          <li>
-            <span>Logout</span>
+          <li onClick={handleCloseAfterClickOnMenuItem}>
+            <button className={styles.logout_button}>Logout</button>
           </li>
         </ul>
       </nav>

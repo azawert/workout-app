@@ -1,0 +1,20 @@
+.button__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > div {
+    width: 48%;
+    > button {
+      width: 100%;
+    }
+    &:last-child > button {
+      background-color: darkcyan;
+      opacity: 0.8;
+      transition: opacity 0.05s ease-in;
+      &:hover {
+        background-color: lighten(darkcyan, 10%);
+        opacity: 1;
+      }
+    }
+  }
+}

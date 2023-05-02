@@ -24,14 +24,17 @@ export const Header: FC = () => {
   const handleClickOnArrow = () => {
     navigate(-1);
   };
+  const handleClickUserIcon = () => {
+    navigate("/me");
+  };
   return (
     <header className={styles.wrapper_header}>
-      <button onClick={isMainPage ? () => null : handleClickOnArrow}>
+      <button onClick={isMainPage ? handleClickUserIcon : handleClickOnArrow}>
         {isMainPage ? <UserIcon /> : <LeftArrow />}
       </button>
 
       {isShow ? (
-        <div ref={ref}>
+        <div ref={ref} className={styles.wrapper_menu}>
           <button onClick={handleClickMenu}>
             <CloseIcon />
           </button>

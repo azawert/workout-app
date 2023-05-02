@@ -2,25 +2,31 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { routes } from "./routes/routes";
 
-import { Layout } from "./components/layout/Layout";
-
 import { useAuth } from "./hooks/useAuth";
+
+import { NoRights } from "./pages/no-rights-403/NoRights";
+import { NotFound } from "./pages/not-found/NotFound";
 
 function App() {
   const { isAuth } = useAuth();
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          {routes.map((route) => (
-            <Route
-              element={<route.component />}
-              path={route.path}
-              key={route.path}
-            />
-          ))}
-        </Routes>
-      </Layout>
+      <Routes>
+        {routes.map((route) => (
+          <Route
+            element={
+              route.isForAuthenticated === isAuth || isAuth ? (
+                <route.component />
+              ) : (
+                <NoRights />
+              )
+            }
+            path={route.path}
+            key={route.path}
+          />
+        ))}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </BrowserRouter>
   );
 }
