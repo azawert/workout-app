@@ -1,0 +1,23 @@
+@import "../../../assets/styles/variables";
+
+.input {
+  background-color: $purple;
+  border: 1px solid transparent;
+  color: #000;
+  font-size: 16px;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  outline: none;
+  width: 100%;
+
+  &:focus {
+    border-color: rgba($accent, 0.3);
+  }
+}
+
+.error {
+  color: #8d2b3d;
+  font-size: 0.6rem;
+  margin-top: 0.2rem;
+}

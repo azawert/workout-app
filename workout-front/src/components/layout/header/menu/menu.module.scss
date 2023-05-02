@@ -24,6 +24,7 @@
       list-style: none;
 
       span,
+      .logout_button,
       a {
         color: #000;
         text-decoration: none;
@@ -33,9 +34,12 @@
         &:hover,
         &.active {
           color: $accent;
-          margin: 4px 0;
         }
       }
     }
   }
+}
+
+.logout_button {
+  font-size: 14px;
 }

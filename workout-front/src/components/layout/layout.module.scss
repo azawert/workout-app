@@ -7,28 +7,28 @@
   height: 100%;
   max-width: 560px;
   width: 100%;
-
   padding: 25px;
   margin: 0 auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  .other__page {
-    height: 280px;
-    border-radius: 0 0 20px 20px;
-    box-shadow: $bx-accent;
-    @media (max-width: $mobile_width) {
-      height: 260px !important;
-    }
-  }
+}
 
-  .heading {
-    text-transform: uppercase;
-    color: $white;
-    font-size: 30px;
-    font-weight: bold;
-    @media (max-width: $mobile_width) {
-      font-size: 24px;
-    }
+.other__page {
+  height: 280px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: $bx-accent;
+  @media (max-width: $mobile_width) {
+    height: 260px !important;
+  }
+}
+
+.heading {
+  text-transform: uppercase;
+  color: $white;
+  font-size: 30px;
+  font-weight: bold;
+  @media (max-width: $mobile_width) {
+    font-size: 24px;
   }
 }

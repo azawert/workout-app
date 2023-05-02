@@ -19,7 +19,7 @@ export const Layout: FC<ILayoutProps> = ({ children, heading, image }) => {
     >
       <Header />
       {heading && <h1 className={styles.heading}>{heading}</h1>}
-      <div>{children}</div>
+      {children}
     </div>
   );
 };
